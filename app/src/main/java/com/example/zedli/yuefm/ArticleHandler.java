@@ -4,9 +4,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by ZedLi on 2015/3/3.
  */
@@ -22,16 +19,9 @@ public class ArticleHandler extends Handler
         {
             String result = (String)msg.obj;
             Log.v("YueFM", "result:" + result);
-            JSONObject jsonObj = null;
-            try {
 
-                jsonObj = new JSONObject(result);
-                String bodyString = jsonObj.getString("body");
-                mOnGetResultHandler.getResultSuccess(bodyString);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                mOnGetResultHandler.getResultFailed();
-            }
+             mOnGetResultHandler.getResultSuccess(result);
+
         }
         else
         {

@@ -13,13 +13,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MyFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private int position;
-    private TextView mBodyTextView;
+    private TextView mTitleTextView,mSourceTextView,mBodyTextView;
     private LinearLayout mErrorLinear;
     private ProgressBar mProgressBar;
     private Button mRetryBtn;
@@ -58,6 +61,9 @@ public class MyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_view_pager, container, false);
+
+        mTitleTextView = (TextView)view.findViewById(R.id.mTitle);
+        mSourceTextView = (TextView)view.findViewById(R.id.mSource);
         mBodyTextView = (TextView)view.findViewById(R.id.mBody);
         mErrorLinear = (LinearLayout)view.findViewById(R.id.errorLinear);
         mProgressBar = (ProgressBar)view.findViewById(R.id.mProgressBar);
@@ -106,10 +112,24 @@ public class MyFragment extends Fragment {
     {
 
         @Override
-        public void getResultSuccess(String str) {
+        public void getResultSuccess(String result) {
             mProgressBar.setVisibility(View.INVISIBLE);
             mErrorLinear.setVisibility(View.INVISIBLE);
-            mBodyTextView.setText(Html.fromHtml(str));
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                String bodyString = jsonObject.getString("body");
+                String titleString = jsonObject.getString("title");
+                String sourceString = jsonObject.getString("source");
+
+                mBodyTextView.setText(Html.fromHtml(bodyString));
+                mTitleTextView.setText(Html.fromHtml(titleString));
+                mSourceTextView.setText(Html.fromHtml("来源："+sourceString));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                getResultFailed();
+            }
+
+
         }
 
         @Override
