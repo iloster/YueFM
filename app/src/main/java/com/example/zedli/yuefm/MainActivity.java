@@ -32,6 +32,8 @@ public class MainActivity extends FragmentActivity {
     private Button mBigBtn;
     private TextView mTextSize,mNightLabel,mTextSizeLabel;
     private Switch mNightSwitch;
+
+    private LinearLayout mShareWeChat,mShareFriends,mShareLike;
     private ArticleSharePreferences mArticleSharePreferences = new ArticleSharePreferences(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,9 @@ public class MainActivity extends FragmentActivity {
         mBigBtn = (Button)settingView.findViewById(R.id.mBigBtn);
         mTextSize = (TextView)settingView.findViewById(R.id.mTextSize);
         mNightSwitch = (Switch)settingView.findViewById(R.id.mNightSwitch);
+        mShareWeChat = (LinearLayout)settingView.findViewById(R.id.mShareWeChat);
+        mShareFriends = (LinearLayout)settingView.findViewById(R.id.mShareFriends);
+        mShareLike = (LinearLayout)settingView.findViewById(R.id.mShareLike);
 
         mTextSize.setText(mArticleSharePreferences.getTextSizeFromSp("body")+"号");
         mNightSwitch.setChecked(mArticleSharePreferences.getTextColorFromSp());
@@ -117,6 +122,9 @@ public class MainActivity extends FragmentActivity {
             mNightLabel.setTextColor(getResources().getColor(R.color.body_color_night));
             mTextSizeLabel.setTextColor(getResources().getColor(R.color.body_color_night));
             mTextSize.setTextColor(getResources().getColor(R.color.body_color_night));
+            mShareWeChat.setBackground(getResources().getDrawable(R.drawable.share_linear_night_click));
+            mShareFriends.setBackground(getResources().getDrawable(R.drawable.share_linear_night_click));
+            mShareLike.setBackground(getResources().getDrawable(R.drawable.share_linear_night_click));
         }else
         {
             mRootRelative.setBackgroundColor(getResources().getColor(R.color.body_color_day));
@@ -124,6 +132,9 @@ public class MainActivity extends FragmentActivity {
             mNightLabel.setTextColor(getResources().getColor(R.color.body_color_day));
             mTextSizeLabel.setTextColor(getResources().getColor(R.color.body_color_day));
             mTextSize.setTextColor(getResources().getColor(R.color.body_color_day));
+            mShareWeChat.setBackground(getResources().getDrawable(R.drawable.share_linear_click));
+            mShareFriends.setBackground(getResources().getDrawable(R.drawable.share_linear_click));
+            mShareLike.setBackground(getResources().getDrawable(R.drawable.share_linear_click));
         }
     }
 
