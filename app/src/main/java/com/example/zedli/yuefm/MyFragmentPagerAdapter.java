@@ -24,4 +24,5 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter
     public int getCount() {
         return Integer.MAX_VALUE;
     }
+
 }

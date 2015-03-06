@@ -2,14 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mRootRelative"
-    tools:context=".MainActivity">
+    tools:context="com.example.zedli.yuefm.SplashActivity">
 
-    <android.support.v4.view.ViewPager
-        android:layout_height="wrap_content"
+    <ImageView
         android:layout_width="match_parent"
-        android:id = "@+id/mViewPager">
-
-    </android.support.v4.view.ViewPager>
-
+        android:layout_height="match_parent"
+        android:src="@mipmap/splash"/>
 </RelativeLayout>

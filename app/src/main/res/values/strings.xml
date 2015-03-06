@@ -3,4 +3,35 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Switch Default -->
+    <dimen name="switch_width">100dp</dimen>
+    <dimen name="switch_height">48dp</dimen>
+    <dimen name="switch_thumb_radius">10dp</dimen>
+    <dimen name="switch_ripple_max_radius">24dp</dimen>
+    <dimen name="switch_stroke_width">2dp</dimen>
+    <dimen name="switch_track_width">1dp</dimen>
+    <color name="switch_track_color">#4f4f4f</color>
+    <color name="switch_track_checked_color">#FFFFFF</color>
+    <color name="switch_thumb_color">#929292</color>
+    <color name="switch_thumb_checked_color">#45B7FB</color>
+
+    <!-- TrackSlider Default -->
+    <color name="track_slider_color">#ffc8c8c8</color>
+    <color name="track_slider_tint_color">#ff3f51b5</color>
+    <dimen name="track_slider_thumb_radius">10dp</dimen>
+    <dimen name="track_slider_ripple_radius">20dp</dimen>
+    <dimen name="track_slider_bar_height">2dp</dimen>
+
+    <!--白天-->
+    <color name="background_color_day">#eeeeee</color>
+    <color name="background_color_night">#161616</color>
+    <color name="title_color_day">#444444</color>
+    <color name="title_color_night">#626262</color>
+    <color name="body_color_day">#555555</color>
+    <color name="body_color_night">#585858</color>
+    <color name="source_color_day">#aaa</color>
+    <color name="source_color_night">#585858</color>
+    <string name="title_activity_splash">SplashActivity</string>
+
 </resources>
